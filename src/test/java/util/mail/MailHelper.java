@@ -75,7 +75,8 @@ public class MailHelper {
         Message[] message;
         try {
             message = folder.getMessages();
-            listMess = Lists.reverse(Arrays.stream(message).toList());
+            listMess= new ArrayList<Message>(Arrays.asList(message));
+          //  listMess = Lists.reverse(Arrays.stream(message).toList());
         } catch (MessagingException e) {
             throw new Error("Error while get messages from folder " + e);
         }
