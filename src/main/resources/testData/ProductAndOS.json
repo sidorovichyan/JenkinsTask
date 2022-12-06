@@ -1,0 +1,14 @@
+[
+  {
+    "os": "Windows",
+    "product":"Safe Kids"
+  },
+  {
+    "os": "Mac",
+    "product":"Internet Security"
+  },
+  {
+    "os": "Android",
+    "product":"Safe Kids"
+  }
+]

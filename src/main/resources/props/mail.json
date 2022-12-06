@@ -1,0 +1,8 @@
+{
+  "mail.imap.host": "imap.mail.ru",
+  "mail.imap.port": 993,
+  "mail.imap.starttls.enable": true,
+  "mail.debug": false,
+  "mail.store.protocol": "imaps",
+  "mail.imap.ssl.enable": true
+}
