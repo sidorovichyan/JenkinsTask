@@ -109,6 +109,9 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+            
+    <aspectj.version>1.8.10</aspectj.version>
+
     </properties>
 
 </project>
