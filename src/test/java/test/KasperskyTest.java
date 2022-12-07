@@ -54,7 +54,7 @@ public class KasperskyTest extends BaseTest {
                 && sizeMessagesNewslattersBeforeSend == mailHelper.sizeMessagesFromNewslatters()) {
             try {
                 numbSleep++;
-                Thread.sleep(10000);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 throw new Error("Error while try wait sending message");
             }
