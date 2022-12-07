@@ -4,6 +4,7 @@ package test;
 import aquality.selenium.browser.AqualityServices;
 import aquality.selenium.core.localization.ILocalizedLogger;
 import entity.ProductAndOS;
+import java.io.ByteArrayInputStream;
 import form.AuthForm;
 import form.DownloadForm;
 import form.ModalSendToEmailForm;
@@ -18,16 +19,23 @@ public class KasperskyTest extends BaseTest {
     private static final ILocalizedLogger logger = AqualityServices.getLocalizedLogger();
     private static final String INBOX_FOLDER = "INBOX";
     private static final String NEWSLETTERS_FOLDER = "INBOX/Newsletters";
+    
+    @Attachment(value = "Screenshot", type = "image/png")
+    public byte[] screenshot() {
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+}
 
     @Test(dataProvider = "ProductAndOS")
     public void productCheck(ProductAndOS productAndOS) {
         logger.info("Authorization on the site");
         AuthForm authForm = new AuthForm();
         authForm.state().waitForDisplayed();
+        Allure.addAttachment("Any text", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
         authForm.performAuthorization(TestDataHelper.getInstance().getValue("username"),TestDataHelper.getInstance().getValue("password"));
         SubscriptionForm subscriptionForm = new SubscriptionForm();
         subscriptionForm.state().waitForDisplayed();
         subscriptionForm.clickDownloadLink();
+        
 
         logger.info("Go to download tab");
         DownloadForm downloadForm = new DownloadForm();
@@ -65,4 +73,5 @@ public class KasperskyTest extends BaseTest {
        
         mailHelper.close();
     }
+    
 }
