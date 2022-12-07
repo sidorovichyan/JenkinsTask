@@ -22,6 +22,7 @@ public class BaseTest {
     @BeforeMethod
     public void beforeTestMethod() {
         Browser browser = AqualityServices.getBrowser();
+
         browser.goTo(ConfigHelper.getInstance().getUrlMainPage());
         browser.maximize();
     }
