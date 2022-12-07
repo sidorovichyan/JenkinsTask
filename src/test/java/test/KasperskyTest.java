@@ -62,11 +62,7 @@ public class KasperskyTest extends BaseTest {
                 throw new Error("Waiting for the message is too long, " + numbSleep + " seconds have passed");
             }
         }
-        if (mailHelper.sizeMessagesFromInbox() > sizeMessagesInboxBeforeSend) {
-            Assert.assertTrue(mailHelper.checkLastMailWithLinkToDownload(productAndOS.getProduct(), INBOX_FOLDER), "Wrong email link received");
-        } else if (mailHelper.sizeMessagesFromNewslatters() > sizeMessagesNewslattersBeforeSend) {
-            Assert.assertTrue(mailHelper.checkLastMailWithLinkToDownload(productAndOS.getProduct(), NEWSLETTERS_FOLDER), "Wrong email link received");
-        }
+       
         mailHelper.close();
     }
 }
